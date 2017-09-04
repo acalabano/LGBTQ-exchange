@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+body {
+	font-family: 'Lato';
+	background-color: #f0f0f0;
+	margin: 0px auto;
+	max-width: 1150px;
+  padding: 5%;
+  padding: 7%;
+  margin-left: 0px;
+	text-align: center;
+}
+
+
+/* responsive */
+@media (max-width: 766px, max-length:766px) {
+  body { padding-top: 140px; }
+}

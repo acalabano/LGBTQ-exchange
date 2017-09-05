@@ -22,6 +22,7 @@ class Experiences extends React.Component {
       currentUserId: '',
       currentUsername: '',
     }
+    this.onExperienceSubmit=this.onExperienceSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -30,20 +31,29 @@ class Experiences extends React.Component {
         this.setState({ currentUserId: user.uid, currentUsername: user.displayName })
       }
     })
-    console.log('LOBBYYYYY DIDMOUNT', this.props)
+    console.log('LOBBYYYYY huuu new one', this.props)
+  }
+
+  onExperienceSubmit(event) {
+    event.preventDefault()
+    let ExperienceInfo = {
+      content: event.target.experienceContent.value,
+      likes: 0
+    }
+    this.props.addATask(ExperienceInfo.content, ExperienceInfo.likes)
+    event.target.experienceContent.value=''
   }
 
   render() {
     return (
       <div>
         <div className="row">
-          <div className="col-sm-4">
-            <form onSubmit={this.onTaskSubmit}>
-              <label htmlFor="taskContent" className="mr-sm-2"> Task Content: </label>
+          <div className="col-sm-12">
+            <form onSubmit={this.onExperienceSubmit}>
             <div className="form-group">
-              <input className="form-control" placeholder="Do my project, make a thing" type="text" id="taskContent" defaultValue=""></input>
+              <textarea className="form-control" cols="40" rows="5" placeholder="Share your experience or stories here.  The more colorful, the more rainbow likes!" type="text" id="experienceContent" defaultValue=""></textarea>
             </div>
-              <button className="btn btn-default" type="submit">Add a Daily Task</button>
+              <button className="btn btn-default" type="submit">Share your experience!</button>
             </form>
           </div>
         </div>

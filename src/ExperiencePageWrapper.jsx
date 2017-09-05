@@ -3,9 +3,9 @@ import {Route} from 'react-router'
 import firebase from 'APP/fire'
 const db = firebase.database()
 
-import QuestionPage from './components/QuestionPage'
+import ExperiencePage from './components/ExperiencePage'
 
 export default () =>
     <div className='lobbyPage'>
-      <QuestionPage fireRef={db.ref('experiences')}/>
+      <ExperiencePage fireRef={db.ref('experiences')}/>
   </div>
